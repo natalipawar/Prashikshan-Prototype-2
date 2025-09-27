@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { CheckCircle, Quote, Handshake, ArrowRight, Users, Target, TrendingUp } from 'lucide-react'
+import { CheckCircle, Quote, Users2, ArrowRight, Users, Target, TrendingUp } from 'lucide-react'
 import { industryBenefits, testimonial } from '../data/mockData'
 
 const IndustryBenefits = () => {
@@ -138,7 +138,7 @@ const IndustryBenefits = () => {
             animate={{ y: [0, -5, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            <Handshake className="w-12 h-12 text-white" />
+            <Users2 className="w-12 h-12 text-white" />
           </motion.div>
           
           <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
