@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { CheckCircle, Quote, Users2, ArrowRight, Users, Target, TrendingUp } from 'lucide-react'
+import { CheckCircle, Quote, Users as Users2, ArrowRight, Users, Target, TrendingUp } from 'lucide-react'
 import { industryBenefits, testimonial } from '../data/mockData'
 
 const IndustryBenefits = () => {
