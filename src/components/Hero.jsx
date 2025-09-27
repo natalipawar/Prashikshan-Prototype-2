@@ -52,29 +52,33 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="space-y-8">
+            <div className="space-y-6">
               <motion.h1 
                 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <span className="block">Prashikshan</span>
-                <span className="block text-primary-600 mt-2">
+                <span className="block font-extrabold">Prashikshan</span>
+                <span className="block text-primary-600 mt-2 font-bold">
                   internships that connect
                 </span>
-                <span className="block mt-2">learning with real work</span>
+                <span className="block mt-2 font-bold">learning with real work</span>
               </motion.h1>
               
-              <motion.p 
-                className="text-lg lg:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0 leading-relaxed"
+              <motion.div
+                className="space-y-4 max-w-2xl mx-auto lg:mx-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Discover, apply, track and validate internships — designed for students, 
-                colleges and industry.
-              </motion.p>
+                <p className="text-lg lg:text-xl text-gray-600 leading-relaxed font-medium">
+                  <span className="font-semibold">Discover, apply, track and validate internships</span>
+                </p>
+                <p className="text-base lg:text-lg text-gray-500 leading-relaxed">
+                  Designed for students, colleges and industry.
+                </p>
+              </motion.div>
             </div>
 
             <motion.div 
@@ -99,9 +103,9 @@ const Hero = () => {
               >
                 <Link 
                   to="/guide" 
-                  className="btn-secondary text-base px-8 py-4 group shadow-lg"
+                  className="inline-flex items-center bg-white hover:bg-gray-50 text-primary-600 border-2 border-primary-600 px-8 py-4 rounded-xl font-medium transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 text-base group shadow-lg"
                 >
-                  <BookOpen className="w-5 h-5 mr-2" />
+                  <BookOpen className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
                   View Internship Guide
                 </Link>
               </motion.div>
