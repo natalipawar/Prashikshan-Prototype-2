@@ -82,11 +82,6 @@ const LoginModal = ({ isOpen, onClose, defaultRole = 'student' }) => {
         // Show success message
         console.log('Login successful:', result.user)
         onClose()
-
-        // Navigate based on role
-        if (formData.role === 'faculty') {
-          navigate('/faculty')
-        }
         
         // Reset form
         setFormData({
@@ -96,9 +91,16 @@ const LoginModal = ({ isOpen, onClose, defaultRole = 'student' }) => {
           institution: ''
         })
         setErrors({})
-        
-        // Show success toast (could be implemented with a toast library)
-        alert(`Welcome! You have successfully logged in as ${formData.role}.`)
+
+        // Navigate based on role
+        if (formData.role === 'faculty') {
+          navigate('/faculty')
+        } else if (formData.role === 'student') {
+          navigate('/student')
+        } else if (formData.role === 'industry') {
+          // For now, redirect to homepage - can be changed later
+          navigate('/')
+        }
       }
     } catch (error) {
       console.error('Login error:', error)
