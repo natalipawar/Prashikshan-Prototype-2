@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { X, User, Mail, Building, Lock } from 'lucide-react'
 import { useAuth } from '../contexts/AuthContext'
 import { validateForm } from '../utils/helpers'
+import { useNavigate } from 'react-router-dom'
 
 const LoginModal = ({ isOpen, onClose, defaultRole = 'student' }) => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -80,6 +82,11 @@ const LoginModal = ({ isOpen, onClose, defaultRole = 'student' }) => {
         // Show success message
         console.log('Login successful:', result.user)
         onClose()
+
+        // Navigate based on role
+        if (formData.role === 'faculty') {
+          navigate('/faculty')
+        }
         
         // Reset form
         setFormData({
