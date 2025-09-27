@@ -44,30 +44,30 @@ const Hero = () => {
       </div>
 
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center min-h-[600px]">
           {/* Left Content */}
           <motion.div
-            className="space-y-8 text-center lg:text-left"
+            className="space-y-10 text-center lg:text-left"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="space-y-6">
+            <div className="space-y-8">
               <motion.h1 
-                className="text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight"
+                className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <span className="block">Prashikshan</span>
-                <span className="block text-primary-600">
+                <span className="block text-primary-600 mt-2">
                   internships that connect
                 </span>
-                <span className="block">learning with real work</span>
+                <span className="block mt-2">learning with real work</span>
               </motion.h1>
               
               <motion.p 
-                className="text-xl lg:text-2xl text-gray-600 max-w-2xl mx-auto lg:mx-0"
+                className="text-lg lg:text-xl text-gray-600 max-w-xl mx-auto lg:mx-0 leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -78,14 +78,14 @@ const Hero = () => {
             </div>
 
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <motion.button
                 onClick={handleGetStarted}
-                className="btn-primary text-lg px-8 py-4 group"
+                className="btn-primary text-base px-8 py-4 group shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -99,7 +99,7 @@ const Hero = () => {
               >
                 <Link 
                   to="/guide" 
-                  className="btn-secondary text-lg px-8 py-4 group"
+                  className="btn-secondary text-base px-8 py-4 group shadow-lg"
                 >
                   <BookOpen className="w-5 h-5 mr-2" />
                   View Internship Guide
@@ -109,20 +109,20 @@ const Hero = () => {
 
             {/* Trust indicators */}
             <motion.div
-              className="flex flex-wrap justify-center lg:justify-start gap-8 pt-8"
+              className="flex flex-wrap justify-center lg:justify-start gap-6 pt-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <div className="flex items-center space-x-2 text-gray-600">
+              <div className="flex items-center space-x-2 text-gray-600 bg-white/80 px-4 py-2 rounded-full shadow-sm">
                 <CheckCircle className="w-5 h-5 text-primary-500" />
                 <span className="text-sm font-medium">Verified Employers</span>
               </div>
-              <div className="flex items-center space-x-2 text-gray-600">
+              <div className="flex items-center space-x-2 text-gray-600 bg-white/80 px-4 py-2 rounded-full shadow-sm">
                 <CheckCircle className="w-5 h-5 text-primary-500" />
                 <span className="text-sm font-medium">NEP Compliant</span>
               </div>
-              <div className="flex items-center space-x-2 text-gray-600">
+              <div className="flex items-center space-x-2 text-gray-600 bg-white/80 px-4 py-2 rounded-full shadow-sm">
                 <CheckCircle className="w-5 h-5 text-primary-500" />
                 <span className="text-sm font-medium">Rural Support</span>
               </div>
@@ -131,15 +131,15 @@ const Hero = () => {
 
           {/* Right Illustration */}
           <motion.div
-            className="relative"
+            className="relative flex justify-center lg:justify-end"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           >
-            <div className="relative">
+            <div className="relative max-w-lg w-full">
               {/* Main illustration container */}
               <motion.div
-                className="relative bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl p-8 lg:p-12"
+                className="relative bg-gradient-to-br from-primary-100 to-primary-200 rounded-3xl p-10 lg:p-12 shadow-xl"
                 animate={{ 
                   y: [0, -10, 0],
                 }}
@@ -150,16 +150,16 @@ const Hero = () => {
                 }}
               >
                 {/* Students collaborating illustration placeholder */}
-                <div className="space-y-6">
+                <div className="space-y-8">
                   <div className="flex justify-center">
-                    <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center shadow-lg">
-                      <Users className="w-12 h-12 text-primary-600" />
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg">
+                      <Users className="w-10 h-10 text-primary-600" />
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-6">
                     <motion.div 
-                      className="bg-white rounded-xl p-4 shadow-lg"
+                      className="bg-white rounded-xl p-5 shadow-lg"
                       whileHover={{ scale: 1.05, rotate: 2 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
@@ -176,7 +176,7 @@ const Hero = () => {
                     </motion.div>
                     
                     <motion.div 
-                      className="bg-white rounded-xl p-4 shadow-lg"
+                      className="bg-white rounded-xl p-5 shadow-lg"
                       whileHover={{ scale: 1.05, rotate: -2 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
@@ -188,7 +188,7 @@ const Hero = () => {
                     </motion.div>
                     
                     <motion.div 
-                      className="bg-white rounded-xl p-4 shadow-lg"
+                      className="bg-white rounded-xl p-5 shadow-lg"
                       whileHover={{ scale: 1.05, rotate: 2 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
@@ -200,7 +200,7 @@ const Hero = () => {
                     </motion.div>
                     
                     <motion.div 
-                      className="bg-white rounded-xl p-4 shadow-lg"
+                      className="bg-white rounded-xl p-5 shadow-lg"
                       whileHover={{ scale: 1.05, rotate: -2 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
@@ -216,7 +216,7 @@ const Hero = () => {
 
               {/* Floating elements around the main illustration */}
               <motion.div
-                className="absolute -top-4 -left-4 w-12 h-12 bg-yellow-400 rounded-full shadow-lg flex items-center justify-center"
+                className="absolute -top-6 -left-6 w-14 h-14 bg-yellow-400 rounded-full shadow-lg flex items-center justify-center"
                 animate={{ 
                   y: [0, -5, 0],
                   rotate: [0, 10, -10, 0]
@@ -227,11 +227,11 @@ const Hero = () => {
                   ease: "easeInOut"
                 }}
               >
-                <Zap className="w-6 h-6 text-white" />
+                <Zap className="w-7 h-7 text-white" />
               </motion.div>
 
               <motion.div
-                className="absolute -bottom-6 -right-6 w-16 h-16 bg-green-400 rounded-full shadow-lg flex items-center justify-center"
+                className="absolute -bottom-8 -right-8 w-18 h-18 bg-green-400 rounded-full shadow-lg flex items-center justify-center"
                 animate={{ 
                   y: [0, 5, 0],
                   rotate: [0, -10, 10, 0]
@@ -243,7 +243,7 @@ const Hero = () => {
                   delay: 1
                 }}
               >
-                <CheckCircle className="w-8 h-8 text-white" />
+                <CheckCircle className="w-9 h-9 text-white" />
               </motion.div>
             </div>
           </motion.div>
