@@ -4,56 +4,60 @@ import { motion } from 'framer-motion'
 import { studentDashboardData } from '../../data/mockData'
 
 const OverviewStats = () => {
-  const { overview, assignments } = studentDashboardData
+  const { overview, dailyLogbook, notifications } = studentDashboardData
 
-  // Calculate overdue assignments
+  // Calculate overdue logbooks
   const now = new Date()
-  const overdueAssignments = assignments.filter(assignment => 
-    assignment.status === 'pending' && new Date(assignment.dueDate) < now
+  const overdueLogbooks = dailyLogbook.filter(entry => 
+    entry.status === 'pending'
   ).length
+  
+  // Calculate urgent notifications
+  const urgentNotifications = notifications.filter(n => n.priority === 'high' && n.unread).length
 
   const stats = [
     {
-      id: 'courses',
-      title: 'Courses Enrolled',
-      value: overview.coursesEnrolled,
+      id: 'internships',
+      title: 'Active Internships',
+      value: overview.internshipsActive,
       icon: BookOpen,
       color: 'bg-blue-500',
       bgColor: 'bg-blue-50',
       textColor: 'text-blue-600',
-      description: 'Active courses'
+      description: `${overview.internshipsCompleted} completed`
     },
     {
-      id: 'assignments',
-      title: 'Assignments Pending',
-      value: overview.assignmentsPending,
+      id: 'logbooks',
+      title: 'Logbooks Pending',
+      value: overview.logbooksPending,
       icon: FileText,
-      color: overdueAssignments > 0 ? 'bg-red-500' : 'bg-orange-500',
-      bgColor: overdueAssignments > 0 ? 'bg-red-50' : 'bg-orange-50',
-      textColor: overdueAssignments > 0 ? 'text-red-600' : 'text-orange-600',
-      description: overdueAssignments > 0 ? `${overdueAssignments} overdue` : 'Due soon',
-      urgent: overdueAssignments > 0
+      color: overdueLogbooks > 0 ? 'bg-red-500' : 'bg-orange-500',
+      bgColor: overdueLogbooks > 0 ? 'bg-red-50' : 'bg-orange-50',
+      textColor: overdueLogbooks > 0 ? 'text-red-600' : 'text-orange-600',
+      description: overdueLogbooks > 0 ? `${overdueLogbooks} overdue` : 'Submit soon',
+      urgent: overdueLogbooks > 0
     },
     {
-      id: 'progress',
-      title: 'Overall Progress',
-      value: `${overview.overallProgress}%`,
+      id: 'credits',
+      title: 'NEP Credits',
+      value: `${overview.creditsEarned}/24`,
       icon: TrendingUp,
       color: 'bg-green-500',
       bgColor: 'bg-green-50',
       textColor: 'text-green-600',
-      description: 'Course completion',
-      progress: overview.overallProgress
+      description: 'Credits earned',
+      progress: (overview.creditsEarned / 24) * 100
     },
     {
-      id: 'messages',
-      title: 'Unread Messages',
-      value: overview.unreadMessages,
-      icon: MessageCircle,
-      color: 'bg-purple-500',
-      bgColor: 'bg-purple-50',
-      textColor: 'text-purple-600',
-      description: 'New messages'
+      id: 'notifications',
+      title: 'Urgent Notifications',
+      value: urgentNotifications,
+      icon: AlertTriangle,
+      color: urgentNotifications > 0 ? 'bg-red-500' : 'bg-gray-500',
+      bgColor: urgentNotifications > 0 ? 'bg-red-50' : 'bg-gray-50',
+      textColor: urgentNotifications > 0 ? 'text-red-600' : 'text-gray-600',
+      description: urgentNotifications > 0 ? 'Action required' : 'All clear',
+      urgent: urgentNotifications > 0
     }
   ]
 

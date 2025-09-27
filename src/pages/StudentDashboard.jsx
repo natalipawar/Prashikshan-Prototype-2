@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import StudentSidebar from '../components/student/StudentSidebar'
 import StudentHeader from '../components/student/StudentHeader'
+import StudentProfile from '../components/student/StudentProfile'
 import OverviewStats from '../components/student/OverviewStats'
 import AlertBanner from '../components/student/AlertBanner'
-import CourseProgress from '../components/student/CourseProgress'
-import AssignmentsList from '../components/student/AssignmentsList'
+import SkillCertifications from '../components/student/SkillCertifications'
+import InternshipBrowser from '../components/student/InternshipBrowser'
+import DailyLogbook from '../components/student/DailyLogbook'
 import ActivityFeed from '../components/student/ActivityFeed'
-import MessagesWidget from '../components/student/MessagesWidget'
+import NotificationsWidget from '../components/student/NotificationsWidget'
+import NEPCredits from '../components/student/NEPCredits'
 import PerformanceAnalytics from '../components/student/PerformanceAnalytics'
 
 const StudentDashboard = () => {
@@ -27,16 +30,21 @@ const StudentDashboard = () => {
       case 'courses':
         return (
           <div className="space-y-8">
-            <CourseProgress />
-            <PerformanceAnalytics />
+            <SkillCertifications />
+            <InternshipBrowser />
           </div>
         )
       case 'assignments':
-        return <AssignmentsList />
+        return <DailyLogbook />
       case 'progress':
-        return <PerformanceAnalytics />
+        return (
+          <div className="space-y-8">
+            <NEPCredits />
+            <PerformanceAnalytics />
+          </div>
+        )
       case 'messages':
-        return <MessagesWidget />
+        return <NotificationsWidget />
       case 'settings':
         return (
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 text-center">
@@ -47,16 +55,19 @@ const StudentDashboard = () => {
       default:
         return (
           <div className="space-y-8">
+            <StudentProfile />
             <OverviewStats />
             <AlertBanner />
             <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
               <div className="xl:col-span-2 space-y-8">
-                <CourseProgress />
-                <AssignmentsList />
+                <SkillCertifications />
+                <InternshipBrowser />
+                <DailyLogbook />
               </div>
               <div className="space-y-8">
+                <NEPCredits />
                 <ActivityFeed />
-                <MessagesWidget />
+                <NotificationsWidget />
               </div>
             </div>
           </div>
@@ -67,13 +78,13 @@ const StudentDashboard = () => {
   const getSectionTitle = () => {
     switch (activeSection) {
       case 'courses':
-        return 'My Courses'
+        return 'Skill Development'
       case 'assignments':
-        return 'Assignments'
+        return 'Daily Logbook'
       case 'progress':
-        return 'Progress & Analytics'
+        return 'Progress & Credits'
       case 'messages':
-        return 'Messages'
+        return 'Notifications'
       case 'settings':
         return 'Settings'
       default:

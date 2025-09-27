@@ -34,10 +34,10 @@ const StudentSidebar = ({ activeSection, onSectionChange }) => {
 
   const navigationItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    { id: 'courses', label: 'Courses', icon: BookOpen },
-    { id: 'assignments', label: 'Assignments', icon: FileText },
-    { id: 'progress', label: 'Progress', icon: TrendingUp },
-    { id: 'messages', label: 'Messages', icon: MessageCircle },
+    { id: 'courses', label: 'Skill Development', icon: BookOpen },
+    { id: 'assignments', label: 'Daily Logbook', icon: FileText },
+    { id: 'progress', label: 'Progress & Credits', icon: TrendingUp },
+    { id: 'messages', label: 'Notifications', icon: MessageCircle },
     { id: 'settings', label: 'Settings', icon: Settings },
   ]
 
