@@ -223,8 +223,8 @@ const Faculty = () => {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div className="flex items-center gap-4">
               <img
-                src={`https://i.pravatar.cc/100?u=${user?.email || 'faculty'}`}
-                alt="Faculty avatar"
+                src={"https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80"}
+                alt="Professor portrait"
                 className="w-20 h-20 rounded-2xl object-cover border border-gray-200"
               />
               <div>
