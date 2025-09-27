@@ -167,114 +167,208 @@ export const navItems = [
 
 // Student Dashboard Mock Data
 export const studentDashboardData = {
-  overview: {
-    coursesEnrolled: 6,
-    assignmentsPending: 3,
-    overallProgress: 72,
-    unreadMessages: 5
+  // Student Profile Information
+  studentProfile: {
+    name: 'Priya Sharma',
+    email: 'priya.sharma@student.edu',
+    avatar: '/avatar-student.jpg',
+    studentId: 'ST2024001',
+    institution: 'Mumbai University',
+    year: '3rd Year',
+    branch: 'Computer Science Engineering',
+    internshipsCompleted: 2,
+    skillsLearned: ['JavaScript', 'React', 'Python', 'Machine Learning', 'Digital Marketing'],
+    creditsEarned: 18,
+    totalCreditsRequired: 24
   },
   
-  courses: [
+  overview: {
+    internshipsActive: 1,
+    internshipsCompleted: 2,
+    skillCertifications: 5,
+    creditsEarned: 18,
+    logbooksPending: 3
+  },
+  
+  skillCertifications: [
     {
-      id: 'cs101',
-      title: 'Web Development Fundamentals',
-      subject: 'Computer Science',
+      id: 'cert001',
+      title: 'Full Stack Web Development',
+      provider: 'Google Career Certificates',
+      category: 'Technology',
       progress: 85,
-      instructor: 'Dr. Sarah Johnson',
-      nextClass: '2024-01-20T10:00:00Z',
-      thumbnail: '/course-web.jpg',
-      status: 'active',
+      duration: '3 months',
+      difficulty: 'Intermediate',
+      thumbnail: '/cert-fullstack.jpg',
+      status: 'in-progress',
+      creditsOffered: 4,
       modules: [
-        { id: 1, title: 'HTML & CSS Basics', completed: true },
-        { id: 2, title: 'JavaScript Fundamentals', completed: true },
-        { id: 3, title: 'React Introduction', completed: false },
-        { id: 4, title: 'Backend with Node.js', completed: false }
+        { id: 1, title: 'HTML, CSS & JavaScript', completed: true, credits: 1 },
+        { id: 2, title: 'React & Frontend Frameworks', completed: true, credits: 1 },
+        { id: 3, title: 'Node.js & Backend APIs', completed: false, credits: 1 },
+        { id: 4, title: 'Database & Deployment', completed: false, credits: 1 }
       ]
     },
     {
-      id: 'ml201',
-      title: 'Machine Learning Basics',
-      subject: 'Data Science',
+      id: 'cert002',
+      title: 'Data Science with Python',
+      provider: 'IBM SkillsBuild',
+      category: 'Data Science',
       progress: 60,
-      instructor: 'Prof. Raj Patel',
-      nextClass: '2024-01-21T14:00:00Z',
-      thumbnail: '/course-ml.jpg',
-      status: 'active',
+      duration: '4 months',
+      difficulty: 'Advanced',
+      thumbnail: '/cert-datascience.jpg',
+      status: 'in-progress',
+      creditsOffered: 6,
       modules: [
-        { id: 1, title: 'Python for ML', completed: true },
-        { id: 2, title: 'Data Preprocessing', completed: true },
-        { id: 3, title: 'Supervised Learning', completed: false },
-        { id: 4, title: 'Neural Networks', completed: false }
+        { id: 1, title: 'Python Programming Basics', completed: true, credits: 1.5 },
+        { id: 2, title: 'Data Analysis with Pandas', completed: true, credits: 1.5 },
+        { id: 3, title: 'Machine Learning Algorithms', completed: false, credits: 1.5 },
+        { id: 4, title: 'Deep Learning & Neural Networks', completed: false, credits: 1.5 }
       ]
     },
     {
-      id: 'dm101',
-      title: 'Digital Marketing Strategy',
-      subject: 'Marketing',
+      id: 'cert003',
+      title: 'Digital Marketing Fundamentals',
+      provider: 'Meta Blueprint',
+      category: 'Marketing',
       progress: 45,
-      instructor: 'Ms. Priya Sharma',
-      nextClass: '2024-01-22T11:00:00Z',
-      thumbnail: '/course-marketing.jpg',
-      status: 'active',
+      duration: '2 months',
+      difficulty: 'Beginner',
+      thumbnail: '/cert-marketing.jpg',
+      status: 'in-progress',
+      creditsOffered: 3,
       modules: [
-        { id: 1, title: 'Social Media Basics', completed: true },
-        { id: 2, title: 'Content Strategy', completed: false },
-        { id: 3, title: 'Analytics & Metrics', completed: false },
-        { id: 4, title: 'Campaign Management', completed: false }
+        { id: 1, title: 'Social Media Marketing', completed: true, credits: 1 },
+        { id: 2, title: 'Content Strategy & Creation', completed: false, credits: 1 },
+        { id: 3, title: 'Analytics & Performance', completed: false, credits: 1 }
       ]
     }
   ],
   
-  assignments: [
+  // Available Internships/Projects
+  availableOpportunities: [
     {
-      id: 'a1',
-      title: 'React Component Library',
-      course: 'Web Development Fundamentals',
-      courseId: 'cs101',
-      dueDate: '2024-01-21T23:59:00Z',
-      status: 'pending',
-      priority: 'high',
-      description: 'Create a reusable component library with 5 components',
-      submissionType: 'code',
-      points: 100
+      id: 'int001',
+      title: 'Full Stack Developer Intern',
+      company: 'TechCorp Solutions',
+      type: 'internship',
+      category: 'Technology',
+      location: 'Mumbai, Maharashtra',
+      workMode: 'hybrid',
+      duration: '6 months',
+      stipend: '₹25,000/month',
+      credits: 6,
+      skills: ['React', 'Node.js', 'MongoDB', 'JavaScript'],
+      description: 'Work on real-world web applications with our development team. Gain hands-on experience in modern web technologies.',
+      applicationDeadline: '2024-02-15T23:59:00Z',
+      startDate: '2024-03-01T00:00:00Z',
+      verified: true
     },
     {
-      id: 'a2',
-      title: 'Customer Segmentation Analysis',
-      course: 'Machine Learning Basics',
-      courseId: 'ml201',
-      dueDate: '2024-01-25T23:59:00Z',
-      status: 'pending',
-      priority: 'medium',
-      description: 'Apply clustering algorithms to customer data',
-      submissionType: 'report',
-      points: 150
+      id: 'proj001',
+      title: 'AI in Healthcare Research',
+      company: 'IIT Bombay',
+      type: 'research',
+      category: 'Research',
+      location: 'Mumbai, Maharashtra',
+      workMode: 'onsite',
+      duration: '4 months',
+      stipend: '₹15,000/month',
+      credits: 4,
+      skills: ['Machine Learning', 'Python', 'Healthcare Analytics'],
+      description: 'Research project on applying AI algorithms to healthcare data analysis.',
+      applicationDeadline: '2024-02-20T23:59:00Z',
+      startDate: '2024-03-15T00:00:00Z',
+      verified: true
     },
     {
-      id: 'a3',
-      title: 'Social Media Campaign Proposal',
-      course: 'Digital Marketing Strategy',
-      courseId: 'dm101',
-      dueDate: '2024-01-28T23:59:00Z',
-      status: 'draft',
-      priority: 'low',
-      description: 'Design a comprehensive social media campaign',
-      submissionType: 'presentation',
-      points: 80
-    },
+      id: 'gov001',
+      title: 'Digital India Initiative',
+      company: 'Ministry of Electronics & IT',
+      type: 'government',
+      category: 'Government',
+      location: 'New Delhi',
+      workMode: 'remote',
+      duration: '3 months',
+      stipend: '₹18,000/month',
+      credits: 5,
+      skills: ['Digital Literacy', 'Public Policy', 'Technology Implementation'],
+      description: 'Contribute to Digital India initiatives focused on rural digitization.',
+      applicationDeadline: '2024-02-25T23:59:00Z',
+      startDate: '2024-03-10T00:00:00Z',
+      verified: true
+    }
+  ],
+  
+  // Daily Logbook Entries
+  dailyLogbook: [
     {
-      id: 'a4',
-      title: 'Database Design Project',
-      course: 'Web Development Fundamentals',
-      courseId: 'cs101',
-      dueDate: '2024-01-15T23:59:00Z',
+      id: 'log001',
+      date: '2024-01-20',
+      internship: 'TechCorp Solutions',
+      hoursWorked: 8,
+      tasksAssigned: [
+        'Implement user authentication module',
+        'Write unit tests for API endpoints',
+        'Update documentation for new features'
+      ],
+      tasksCompleted: [
+        'Implement user authentication module',
+        'Write unit tests for API endpoints'
+      ],
+      tasksPending: [
+        'Update documentation for new features'
+      ],
+      description: 'Worked on implementing JWT-based authentication system. Successfully integrated with React frontend.',
+      skills: ['React', 'JWT', 'Node.js'],
       status: 'submitted',
-      priority: 'high',
-      description: 'Design and implement a relational database',
-      submissionType: 'code',
-      points: 120,
-      grade: 'A-',
-      feedback: 'Excellent work on normalization!'
+      mentorFeedback: 'Good progress on authentication implementation.',
+      location: { lat: 19.0760, lng: 72.8777 }
+    },
+    {
+      id: 'log002',
+      date: '2024-01-19',
+      internship: 'TechCorp Solutions',
+      hoursWorked: 7,
+      tasksAssigned: [
+        'Research database optimization techniques',
+        'Fix responsive design issues',
+        'Code review for team members'
+      ],
+      tasksCompleted: [
+        'Research database optimization techniques',
+        'Fix responsive design issues',
+        'Code review for team members'
+      ],
+      tasksPending: [],
+      description: 'Completed all assigned tasks including database research and responsive fixes.',
+      skills: ['CSS', 'Database Optimization', 'Code Review'],
+      status: 'approved',
+      mentorFeedback: 'Excellent work on all tasks! Great attention to detail.',
+      location: { lat: 19.0760, lng: 72.8777 }
+    },
+    {
+      id: 'log003',
+      date: '2024-01-21',
+      internship: 'TechCorp Solutions',
+      hoursWorked: 0,
+      tasksAssigned: [
+        'Prepare presentation for client demo',
+        'Implement search functionality',
+        'Update API documentation'
+      ],
+      tasksCompleted: [],
+      tasksPending: [
+        'Prepare presentation for client demo',
+        'Implement search functionality',
+        'Update API documentation'
+      ],
+      description: '',
+      skills: [],
+      status: 'pending',
+      mentorFeedback: '',
+      location: null
     }
   ],
   
@@ -314,47 +408,113 @@ export const studentDashboardData = {
     }
   ],
   
-  messages: [
+  // Notifications & Deadlines
+  notifications: [
     {
-      id: 'm1',
-      sender: {
-        name: 'Dr. Sarah Johnson',
-        avatar: '/avatar-sarah.jpg',
-        role: 'instructor'
-      },
-      subject: 'Great work on your recent submission',
-      preview: 'I wanted to commend you on the excellent work you submitted for the database design project...',
-      timestamp: '2024-01-12T11:45:00Z',
+      id: 'notif001',
+      type: 'deadline',
+      title: 'Logbook Submission Due Tomorrow',
+      message: 'Please submit your daily logbook for TechCorp Solutions internship by 11:59 PM tomorrow.',
+      timestamp: '2024-01-20T10:00:00Z',
+      deadline: '2024-01-21T23:59:00Z',
+      priority: 'high',
       unread: true,
-      course: 'Web Development Fundamentals'
+      actionRequired: true,
+      category: 'logbook'
     },
     {
-      id: 'm2',
-      sender: {
-        name: 'Prof. Raj Patel',
-        avatar: '/avatar-raj.jpg',
-        role: 'instructor'
-      },
-      subject: 'Upcoming ML Assignment Guidelines',
-      preview: 'Please find attached the detailed guidelines for the customer segmentation assignment...',
-      timestamp: '2024-01-11T15:20:00Z',
+      id: 'notif002',
+      type: 'opportunity',
+      title: 'New Government Internship Posted',
+      message: 'Digital India Initiative internship applications are now open. Apply before Feb 25.',
+      timestamp: '2024-01-19T14:30:00Z',
+      deadline: '2024-02-25T23:59:00Z',
+      priority: 'medium',
       unread: true,
-      course: 'Machine Learning Basics'
+      actionRequired: true,
+      category: 'application'
     },
     {
-      id: 'm3',
-      sender: {
-        name: 'Academic Office',
-        avatar: '/avatar-admin.jpg',
-        role: 'admin'
-      },
-      subject: 'Mid-term Schedule Released',
-      preview: 'The mid-term examination schedule has been published. Please check your dashboard...',
-      timestamp: '2024-01-10T08:30:00Z',
+      id: 'notif003',
+      type: 'interview',
+      title: 'Interview Scheduled - TechCorp Solutions',
+      message: 'Your interview for Full Stack Developer position is scheduled for Jan 25 at 2:00 PM.',
+      timestamp: '2024-01-18T16:15:00Z',
+      deadline: '2024-01-25T14:00:00Z',
+      priority: 'high',
       unread: false,
-      course: null
+      actionRequired: true,
+      category: 'interview'
+    },
+    {
+      id: 'notif004',
+      type: 'achievement',
+      title: 'Skill Certification Completed',
+      message: 'Congratulations! You have earned 3 NEP credits for completing Digital Marketing Fundamentals.',
+      timestamp: '2024-01-17T12:00:00Z',
+      deadline: null,
+      priority: 'low',
+      unread: false,
+      actionRequired: false,
+      category: 'achievement'
+    },
+    {
+      id: 'notif005',
+      type: 'reminder',
+      title: 'Weekly Progress Review',
+      message: 'Time to review your weekly progress and update your learning goals.',
+      timestamp: '2024-01-16T09:00:00Z',
+      deadline: '2024-01-23T23:59:00Z',
+      priority: 'low',
+      unread: false,
+      actionRequired: false,
+      category: 'progress'
     }
   ],
+  
+  // NEP Credits Information
+  nepCredits: {
+    totalCreditsEarned: 18,
+    totalCreditsRequired: 24,
+    creditsRemaining: 6,
+    currentSemesterCredits: 8,
+    creditsBreakdown: [
+      {
+        category: 'Internships',
+        credits: 12,
+        maxCredits: 16,
+        percentage: 75,
+        details: [
+          { source: 'TechCorp Solutions (Current)', credits: 6, status: 'in-progress' },
+          { source: 'StartupXYZ (Completed)', credits: 6, status: 'completed' }
+        ]
+      },
+      {
+        category: 'Skill Certifications',
+        credits: 6,
+        maxCredits: 8,
+        percentage: 75,
+        details: [
+          { source: 'Full Stack Web Development', credits: 2, status: 'in-progress' },
+          { source: 'Digital Marketing Fundamentals', credits: 3, status: 'completed' },
+          { source: 'Python Programming', credits: 1, status: 'completed' }
+        ]
+      },
+      {
+        category: 'Research Projects',
+        credits: 0,
+        maxCredits: 4,
+        percentage: 0,
+        details: []
+      }
+    ],
+    semesterwise: [
+      { semester: 'Sem 5', credits: 6, target: 8 },
+      { semester: 'Sem 6', credits: 8, target: 8 },
+      { semester: 'Sem 7', credits: 4, target: 8 },
+      { semester: 'Sem 8', credits: 0, target: 8 }
+    ]
+  },
   
   performance: {
     overallGPA: 3.7,
