@@ -10,6 +10,7 @@ import {
   creditsStorage,
   notificationsStorage,
   formatDate,
+  smoothScrollTo,
 } from '../utils/helpers'
 import { 
   Users,
@@ -201,13 +202,7 @@ const Faculty = () => {
             <div className="font-semibold text-gray-900">Prashikshan — Faculty Dashboard</div>
           </div>
 
-          <div className="hidden md:flex items-center space-x-6 text-sm">
-            <a href="#students" className="text-gray-700 hover:text-primary-600">Student Monitoring</a>
-            <a href="#logbook" className="text-gray-700 hover:text-primary-600">Logbook</a>
-            <a href="#credits" className="text-gray-700 hover:text-primary-600">Credit Mapping</a>
-            <a href="#mentorship" className="text-gray-700 hover:text-primary-600">Mentorship</a>
-            <a href="#reports" className="text-gray-700 hover:text-primary-600">Reports</a>
-          </div>
+          {/* Top navigation removed per UX request; navigation moved below hero */}
 
           <div className="flex items-center space-x-3">
             <button className="p-2 rounded-lg hover:bg-gray-100" aria-label="Settings"><Settings className="w-5 h-5 text-gray-600"/></button>
@@ -222,13 +217,44 @@ const Faculty = () => {
         </div>
       </div>
 
-      <main className="container-custom py-8 space-y-12">
-        {/* Hero + Stats */}
-        <section className="">
-          <div className="mb-6">
-            <h1 className="text-2xl lg:text-3xl font-bold text-gray-900">Welcome, {user?.email ? `Prof. ${user.email.split('@')[0]}` : 'Professor'} — Manage internships & mentorships.</h1>
+      <main className="container-custom py-10 space-y-12">
+        {/* Profile Hero */}
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 lg:p-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <img
+                src={`https://i.pravatar.cc/100?u=${user?.email || 'faculty'}`}
+                alt="Faculty avatar"
+                className="w-20 h-20 rounded-2xl object-cover border border-gray-200"
+              />
+              <div>
+                <h1 className="text-2xl lg:text-3xl font-bold text-gray-900">{user?.email ? `Prof. ${user.email.split('@')[0]}` : 'Professor'}</h1>
+                <p className="text-gray-600">Faculty / College Admin • Prashikshan</p>
+              </div>
+            </div>
+            {/* Section navigation chips */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 w-full md:w-auto">
+              {[
+                { id: 'students', label: 'Students' },
+                { id: 'logbook', label: 'Logbook' },
+                { id: 'credits', label: 'Credits' },
+                { id: 'mentorship', label: 'Mentorship' },
+                { id: 'reports', label: 'Reports' },
+                { id: 'notifications', label: 'Notifications' },
+              ].map(item => (
+                <button
+                  key={item.id}
+                  onClick={() => smoothScrollTo(item.id)}
+                  className="px-3 py-2 rounded-lg border border-gray-200 hover:border-primary-300 hover:bg-primary-50 text-sm font-medium text-gray-700"
+                  aria-label={`Go to ${item.label}`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          {/* Quick Stats Row */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6 mt-6">
             <StatCard title="Active Internships" value={stats.activeInternships} icon={Users} />
             <StatCard title="Pending Approvals" value={stats.pendingApprovals} icon={ClipboardCheck} color="text-yellow-600" bg="bg-yellow-50" />
             <StatCard title="Completed Reports" value={stats.completedReports} icon={FileText} color="text-green-600" bg="bg-green-50" />
@@ -242,7 +268,7 @@ const Faculty = () => {
           <SectionHeader id="students" title="Student Monitoring" icon={Users} subtitle="Track progress and manage mentorships" />
 
           {/* Filters */}
-          <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-4">
+          <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 mb-4">
             <div className="flex flex-wrap gap-3 items-center">
               <div className="relative">
                 <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
@@ -268,7 +294,7 @@ const Faculty = () => {
           </div>
 
           {/* Table */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-x-auto">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-x-auto">
             <table className="min-w-full">
               <thead className="bg-gray-50 text-left text-sm text-gray-600">
                 <tr>
@@ -324,13 +350,13 @@ const Faculty = () => {
         <section>
           <SectionHeader id="logbook" title="Logbook & Report Approvals" icon={ClipboardCheck} subtitle="Review and approve submissions" />
 
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2 text-gray-600"><Filter className="w-4 h-4" /><span>Pending Submissions</span></div>
               <button onClick={()=>bulkApprove(logbooks.filter(l=>l.status==='pending').map(l=>l.id))} className="px-3 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 text-sm">Bulk Approve</button>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 gap-4 mt-2">
               {logbooks.filter(l=>l.status==='pending').map(entry => (
                 <div key={entry.id} className="border border-gray-100 rounded-xl p-4 hover:shadow-sm">
                   <div className="flex items-start justify-between">
@@ -363,7 +389,7 @@ const Faculty = () => {
             setNotifications(notificationsStorage.get())
           }} />
 
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 mt-4">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 mt-4">
             <div className="flex items-center justify-between px-4 py-3">
               <div className="font-medium text-gray-900">Credit History</div>
               <button onClick={exportCreditsCSV} className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-50 hover:bg-gray-100 text-sm"><Download className="w-4 h-4"/><span>Export CSV</span></button>
@@ -403,7 +429,7 @@ const Faculty = () => {
             <div className="lg:col-span-3 space-y-4">
               {/* Simple board via status dropdown */}
               {['Unassigned','Assigned','In-Progress','Completed'].map(col => (
-                <div key={col} className="bg-white rounded-xl shadow-sm border border-gray-100">
+                <div key={col} className="bg-white rounded-2xl shadow-sm border border-gray-100">
                   <div className="px-4 py-3 font-medium text-gray-900">{col}</div>
                   <div className="px-4 pb-4 grid md:grid-cols-2 gap-3">
                     {students.filter(s => (s.mentorshipStatus || 'Unassigned').toLowerCase() === col.toLowerCase().replace(' ','-')).map(s => (
@@ -437,7 +463,7 @@ const Faculty = () => {
 
             {/* Mentor directory and tiny analytics */}
             <div className="space-y-4">
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
                 <div className="font-medium text-gray-900 mb-3">Mentor Directory</div>
                 <div className="space-y-3">
                   {mentors.map(m => (
@@ -455,7 +481,7 @@ const Faculty = () => {
                 </div>
               </div>
 
-              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
                 <div className="font-medium text-gray-900 mb-3">Mentorship Analytics</div>
                 <div className="text-sm text-gray-600 space-y-2">
                   <div>Avg response time: 12h</div>
@@ -480,13 +506,13 @@ const Faculty = () => {
         <section>
           <SectionHeader id="reports" title="Reports & Analytics" icon={FileText} subtitle="Overview of internships and mentorships" />
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
               <div className="font-medium text-gray-900 mb-2">Completion by Department</div>
               <div className="h-40 bg-gray-50 rounded-lg flex items-end space-x-2 p-2">
                 {[30,60,45,70].map((h,i)=> <div key={i} className="flex-1 bg-primary-200 rounded-t" style={{ height: `${h}%`}} />)}
               </div>
             </div>
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
               <div className="font-medium text-gray-900 mb-2">Mentor Workload</div>
               <div className="h-40 bg-gray-50 rounded-lg flex items-center justify-center text-gray-500 text-sm">Pie (placeholder)</div>
             </div>
@@ -502,7 +528,7 @@ const Faculty = () => {
         {/* Notifications */}
         <section>
           <SectionHeader id="notifications" title="Notifications & Activity" icon={Bell} />
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
             <div className="space-y-2">
               {notifications.map(n => (
                 <div key={n.id} className="flex items-center justify-between border border-gray-100 rounded-lg p-3">
@@ -592,7 +618,7 @@ const CreditMapping = ({ students, internships, onSave }) => {
   }, [internshipId, internships])
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4">
+    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
       <div className="grid md:grid-cols-4 gap-3">
         <input list="student-list" value={studentId} onChange={e=>setStudentId(e.target.value)} placeholder="Select Student (ID)" className="px-3 py-2 border rounded-lg" />
         <datalist id="student-list">
