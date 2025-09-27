@@ -5,7 +5,7 @@ import { studentDashboardData } from '../../data/mockData'
 
 const AlertBanner = () => {
   const [dismissed, setDismissed] = useState(false)
-  const { upcomingDeadlines, assignments } = studentDashboardData
+  const { upcomingDeadlines, dailyLogbook } = studentDashboardData
 
   // Get the most urgent upcoming deadline
   const now = new Date()
@@ -13,9 +13,9 @@ const AlertBanner = () => {
     .filter(deadline => new Date(deadline.dueDate) > now)
     .sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
 
-  // Check for overdue assignments
-  const overdueAssignments = assignments.filter(assignment => 
-    assignment.status === 'pending' && new Date(assignment.dueDate) < now
+  // Check for overdue logbook entries (instead of assignments)
+  const overdueLogbooks = dailyLogbook.filter(logEntry => 
+    logEntry.status === 'pending'
   )
 
   if (dismissed) return null
@@ -24,12 +24,12 @@ const AlertBanner = () => {
   let alertData = null
   let alertType = 'info'
 
-  if (overdueAssignments.length > 0) {
-    const overdue = overdueAssignments[0]
+  if (overdueLogbooks.length > 0) {
+    const overdue = overdueLogbooks[0]
     alertData = {
-      title: `Assignment Overdue: ${overdue.title}`,
-      message: `This assignment was due on ${new Date(overdue.dueDate).toLocaleDateString()}. Submit it as soon as possible.`,
-      course: overdue.course,
+      title: `Logbook Entry Pending: ${overdue.internship}`,
+      message: `Please submit your daily logbook entry for ${overdue.date}.`,
+      course: overdue.internship,
       action: 'Submit Now',
       icon: AlertTriangle,
       type: 'error'
