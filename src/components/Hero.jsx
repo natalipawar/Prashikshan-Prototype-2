@@ -6,7 +6,7 @@ import { smoothScrollTo } from '../utils/helpers'
 
 const Hero = () => {
   const handleGetStarted = () => {
-    smoothScrollTo('features')
+    smoothScrollTo('role-cards')
   }
 
   const floatingIcons = [
