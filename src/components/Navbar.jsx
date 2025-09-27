@@ -105,9 +105,9 @@ const Navbar = () => {
                   <span className="text-sm text-gray-600">
                     Welcome, {user.role}!
                   </span>
-                  {user.role === 'faculty' && (
+{user.role === 'faculty' && (
                     <Link
-                      to="/faculty-demo"
+                      to="/faculty"
                       className="btn-secondary text-sm px-4 py-2"
                     >
                       Dashboard
@@ -213,9 +213,9 @@ const Navbar = () => {
                     <p className="text-sm text-gray-600">
                       Welcome, {user.role}!
                     </p>
-                    {user.role === 'faculty' && (
+{user.role === 'faculty' && (
                       <Link
-                        to="/faculty-demo"
+                        to="/faculty"
                         className="btn-secondary text-sm px-4 py-2 w-full text-center block"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
