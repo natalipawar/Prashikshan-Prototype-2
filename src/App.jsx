@@ -5,6 +5,7 @@ import InternshipGuide from './pages/InternshipGuide'
 import FacultyDemo from './pages/FacultyDemo'
 import Faculty from './pages/Faculty'
 import StudentDashboard from './pages/StudentDashboard'
+import Industry from './pages/Industry'
 import { AuthProvider, useAuth } from './contexts/AuthContext'
 
 function FacultyRoute() {
@@ -19,6 +20,12 @@ function StudentRoute() {
   return <StudentDashboard />
 }
 
+function IndustryRoute() {
+  const { user } = useAuth()
+  if (!user || user.role !== 'industry') return <Navigate to="/" replace />
+  return <Industry />
+}
+
 function App() {
   return (
     <AuthProvider>
@@ -30,6 +37,7 @@ function App() {
             <Route path="/faculty" element={<FacultyRoute />} />
             <Route path="/faculty-demo" element={<FacultyDemo />} />
             <Route path="/student" element={<StudentRoute />} />
+            <Route path="/industry" element={<IndustryRoute />} />
           </Routes>
         </div>
       </Router>

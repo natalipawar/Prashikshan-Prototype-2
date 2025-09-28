@@ -99,7 +99,7 @@ const LoginModal = ({ isOpen, onClose, defaultRole = 'student' }) => {
           navigate('/student')
         } else if (formData.role === 'industry') {
           // For now, redirect to homepage - can be changed later
-          navigate('/')
+          navigate('/industry')
         }
       }
     } catch (error) {
