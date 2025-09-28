@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Building, FileText, Bell, Users, Award, BarChart2, GitPullRequest, LogOut, Plus, Check, Handshake } from 'lucide-react';
+import { Briefcase, Building, FileText, Bell, Users, Award, BarChart2, GitPullRequest, LogOut, Plus, Check } from 'lucide-react';
 
 const Industry = () => {
   return (
@@ -185,7 +185,7 @@ const Industry = () => {
                     <span className="text-sm font-semibold text-[#0F172A]">Shortlist</span>
                 </button>
                 <button className="flex flex-col items-center justify-center p-4 bg-teal-50 rounded-lg hover:bg-teal-100 transition-colors space-y-2">
-                    <Handshake className="w-6 h-6 text-[#0EA5A4]" />
+          <GitPullRequest className="w-6 h-6 text-[#0EA5A4]" />
                     <span className="text-sm font-semibold text-[#0F172A]">Reach Out</span>
                 </button>
                  <button className="flex flex-col items-center justify-center p-4 bg-teal-50 rounded-lg hover:bg-teal-100 transition-colors space-y-2 col-span-2 md:col-span-1">
